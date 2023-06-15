@@ -251,11 +251,13 @@ class NewGetX : AnAction() {
             "state.dart".toRegex(),
             "$prefixName${data.module.stateName.lowercase(Locale.getDefault())}.dart"
         )
-        tempContent = tempContent.replace("Page".toRegex(), data.module.viewName)
+        tempContent = tempContent.replace("Page".toRegex(), "")
         tempContent = tempContent.replace("Logic".toRegex(), data.module.logicName)
         tempContent = tempContent.replace("logic".toRegex(), data.module.logicName.lowercase(Locale.getDefault()))
         tempContent = tempContent.replace("@nameState".toRegex(), "@name${data.module.stateName}")
         tempContent = tempContent.replace("state".toRegex(), data.module.stateName.lowercase(Locale.getDefault()))
+
+        tempContent = tempContent.replace("AppBase".toRegex(), "AppBasePage")
 
         return tempContent
     }

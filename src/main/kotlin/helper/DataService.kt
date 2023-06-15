@@ -32,7 +32,7 @@ class DataService : PersistentStateComponent<DataService> {
     @JvmField
     @OptionTag(converter = FunctionInfoConverter::class)
     var function = FunctionInfo(
-        useFolder = true, usePrefix = false, isPageView = false,
+        useFolder = true, usePrefix = true, isPageView = false,
         addBinding = false, addLifecycle = false, autoDispose = false,
         lintNorm = true, funTabIndex = 0,
     )
