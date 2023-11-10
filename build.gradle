@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 
-group 'com.ankamak.getx'
+group 'com.my.getx'
 // If the plug-in related properties are set here,
 // the corresponding settings in Plugin.xml will be invalid
 // The two settings below are updated frequently, so put them here

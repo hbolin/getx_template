@@ -1,11 +1,11 @@
 <idea-plugin>
-    <id>com.ankamak.getx</id>
+    <id>com.my.getx</id>
     <!-- Plug-in name, the name displayed by the official plugin library -->
-    <name>AnkamakGetX</name>
+    <name>MyGetX</name>
     <!-- version number  -->
     <!--    <version>1.1</version>-->
     <!-- homepage and email (contact address)-->
-    <vendor email="" url="">Ankamak</vendor>
+    <vendor email="" url="">MyGetx</vendor>
 
     <!-- The description of the plug-in
     (the default value cannot be used, it must be modified to its own.
@@ -23,7 +23,7 @@
     <!-- Write plugin actions -->
     <actions>
         <!-- Add your actions here -->
-        <action id="com.tao.NewGetX" class="NewGetX" text="AnkamakGetX" description="Create getX template code"
+        <action id="com.tao.NewGetX" class="NewGetX" text="MyGetX" description="Create getX template code"
                 icon="/image/getx_icon.png">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
