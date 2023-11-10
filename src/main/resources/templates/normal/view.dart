@@ -11,7 +11,7 @@ class @namePage extends StatefulWidget {
     this.initialGetTag = "singleton",
   });
 
-  final String initialGetTag;
+  final String? initialGetTag;
 
   @override
   State<@namePage> createState() => _@namePageState();
@@ -24,7 +24,7 @@ class _@namePageState extends AppBasePage<@namePage> {
 
   @override
   void initState() {
-    getTag = widget.initialGetTag;
+    getTag = widget.initialGetTag ?? "${runtimeType}_$hashCode";
     logic = Get.put(@nameLogic(), tag: getTag);
     state = Get.find<@nameLogic>(tag: getTag).state;
     state.page = widget;
