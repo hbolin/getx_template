@@ -39,12 +39,15 @@ class _@namePageState extends AppBasePage<@namePage> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<@nameLogic>(builder: (logic) {
-      return Scaffold(
-        body: buildScaffoldBody(context, logic, (context) {
-         return Container();
-        }),
-      );
-    });
+    return GetBuilder<@nameLogic>(
+      tag: getTag,
+      builder: (logic) {
+        return Scaffold(
+          body: buildScaffoldBody(context, logic, (context) {
+            return Container();
+          }),
+        );
+      },
+    );
   }
 }
