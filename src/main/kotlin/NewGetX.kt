@@ -189,7 +189,7 @@ class NewGetX : AnAction() {
         content = replaceBinding(content, inputFileName, prefixName)
 
         //replace state file
-        content = replaceState(content, inputFileName)
+        content = replaceState(content, inputFileName, prefixName)
 
         content = content.replace("@name".toRegex(), name)
 
@@ -225,11 +225,11 @@ class NewGetX : AnAction() {
         }
 
         //remove lint
-        if (!data.function.lintNorm || (!data.setting.lint && data.function.lintNorm)) {
-            tempContent = tempContent.replace("\\s*\nimport 'state.dart';".toRegex(), "")
-            tempContent = tempContent.replace("final @nameLogic".toRegex(), "final")
-            tempContent = tempContent.replace("final @nameState".toRegex(), "final")
-        }
+//        if (!data.function.lintNorm || (!data.setting.lint && data.function.lintNorm)) {
+//            tempContent = tempContent.replace("\\s*\nimport 'state.dart';".toRegex(), "")
+//            tempContent = tempContent.replace("final @nameLogic".toRegex(), "final")
+//            tempContent = tempContent.replace("final @nameState".toRegex(), "final")
+//        }
         //remove flutter_lints
         if (!data.function.lintNorm || (!data.setting.flutterLints && data.function.lintNorm)) {
             tempContent = tempContent.replace(
@@ -262,13 +262,18 @@ class NewGetX : AnAction() {
         return tempContent
     }
 
-    private fun replaceState(content: String, inputFileName: String): String {
+    private fun replaceState(content: String, inputFileName: String, prefixName: String): String {
         var tempContent = content
         if (!inputFileName.contains("state.dart")) {
             return tempContent
         }
 
         tempContent = tempContent.replace("State".toRegex(), data.module.stateName)
+
+        tempContent = tempContent.replace(
+            "view.dart".toRegex(),
+            "$prefixName${data.module.viewName.lowercase(Locale.getDefault())}view.dart"
+        )
 
         return tempContent
     }

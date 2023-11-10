@@ -1,4 +1,4 @@
-import 'package:flutter_ankamak/common/pages/base_page.dart';
+import '../../common/pages/base_page.dart';
 import 'package:get/get.dart';
 
 import 'state.dart';
