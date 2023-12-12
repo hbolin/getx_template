@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.my.getx</id>
+    <id>com.flutter_rapid_development_kit.getx</id>
     <!-- Plug-in name, the name displayed by the official plugin library -->
     <name>MyGetX</name>
     <!-- version number  -->

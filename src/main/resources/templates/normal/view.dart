@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../common/pages/base_page.dart';
+import 'package:flutter_rapid_development_kit/flutter_rapid_development_kit.dart';
 import 'package:get/get.dart';
 
 import 'logic.dart';
 import 'state.dart';
 
-class @namePage extends StatefulWidget {
+class @namePage extends AppBasePageStatefulWidget {
   const @namePage({
     super.key,
     this.initialGetTag = "singleton",
@@ -14,10 +14,18 @@ class @namePage extends StatefulWidget {
   final String? initialGetTag;
 
   @override
+  String getRouteName() => ""; // TODO：配置路由名称
+
+  @override
+  Map<String, dynamic>? getRouteParas() => {
+        // TODO:配置路由参数
+      };
+
+  @override
   State<@namePage> createState() => _@namePageState();
 }
 
-class _@namePageState extends AppBasePage<@namePage> {
+class _@namePageState extends AppBasePageState<@namePage> {
   late final @nameLogic logic;
   late final @nameState state;
   late final String getTag;
