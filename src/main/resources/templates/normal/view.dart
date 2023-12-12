@@ -14,7 +14,7 @@ class @namePage extends AppBasePageStatefulWidget {
   final String? initialGetTag;
 
   @override
-  String getRouteName() => ""; // TODO：配置路由名称
+  String getRouteName() => "/@namePage";
 
   @override
   Map<String, dynamic>? getRouteParas() => {
