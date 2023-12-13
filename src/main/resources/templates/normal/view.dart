@@ -8,13 +8,13 @@ import 'state.dart';
 class @namePage extends AppBasePageStatefulWidget {
   const @namePage({
     super.key,
-    this.initialGetTag = "singleton",
+    super.initialGetTag,
   });
 
-  final String? initialGetTag;
-
-  @override
-  String getRouteName() => "/@namePage";
+  factory @namePage.fromRouteParas(Map<String, dynamic> json) => @namePage(
+        initialGetTag: convertT<String?>(json['initialGetTag']),
+        // TODO:配置路由参数
+      );
 
   @override
   Map<String, dynamic>? getRouteParas() => {
@@ -22,17 +22,22 @@ class @namePage extends AppBasePageStatefulWidget {
       };
 
   @override
+  String getRouteName() => "/@namePage";
+
+  @override
   State<@namePage> createState() => _@namePageState();
 }
 
 class _@namePageState extends AppBasePageState<@namePage> {
+  static const getxSingletonTag = "singleton";
+
   late final @nameLogic logic;
   late final @nameState state;
   late final String getTag;
 
   @override
   void initState() {
-    getTag = widget.initialGetTag ?? "${runtimeType}_$hashCode";
+    getTag = widget.initialGetTag ?? getxSingletonTag;
     logic = Get.put(@nameLogic(), tag: getTag);
     state = Get.find<@nameLogic>(tag: getTag).state;
     state.page = widget;
