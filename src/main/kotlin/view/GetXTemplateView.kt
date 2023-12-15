@@ -119,6 +119,8 @@ open class GetXTemplateView(private val getXListener: GetXListener) {
 
         container.add(template)
         setSpacing(container)
+
+        template.isVisible = false
     }
 
     /**
@@ -250,6 +252,7 @@ open class GetXTemplateView(private val getXListener: GetXListener) {
             }
         }
 
+        function.isVisible = false
     }
 
     /**
@@ -262,7 +265,7 @@ open class GetXTemplateView(private val getXListener: GetXListener) {
         val nameField = JPanel()
         val padding = JPanel()
         padding.border = BorderFactory.createEmptyBorder(0, 0, 5, 0)
-        nameField.border = BorderFactory.createTitledBorder("Module Name")
+        nameField.border = BorderFactory.createTitledBorder("Page Name")
         nameTextField = JTextField(33)
         nameTextField.addKeyListener(keyListener)
         padding.add(nameTextField)
