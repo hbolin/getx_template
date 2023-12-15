@@ -56,7 +56,9 @@ class _@namePageState extends AppBasePageState<@namePage> {
       tag: getTag,
       builder: (logic) {
         return buildCachedLoadingBody(context, logic, (context, isCachedData) {
-          return Container();
+          return Scaffold(
+            body: Container(),
+          );
         });
       },
     );
