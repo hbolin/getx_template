@@ -30,7 +30,7 @@ class @namePage extends AppBasePageStatefulWidget {
 
 class _@namePageState extends _@namePageBaseState<@namePage> {
   @override
-  Widget buildScaffold(BuildContext context, LoginPageLogic logic, bool isCachedData) {
+  Widget buildScaffold(BuildContext context, @nameLogic logic, bool isCachedData) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -42,7 +42,9 @@ class _@namePageState extends _@namePageBaseState<@namePage> {
   }
 }
 
-abstract class _@namePageBaseState extends AppBasePageState<@namePage> {
+// ------------------------------------------------------ 基于Getx基础页面框架 ------------------------------------------------------
+
+abstract class _@namePageBaseState<T extends @namePage> extends AppBasePageState<@namePage> {
   static const getxSingletonTag = "singleton";
 
   late final @nameLogic logic;
