@@ -11,6 +11,7 @@ import helper.TemplateInfo
 import view.GetXListener
 import view.GetXTemplateView
 import java.io.*
+import java.nio.charset.Charset
 import java.util.*
 
 
@@ -157,7 +158,7 @@ class NewGetX : AnAction() {
             if (!file.exists()) {
                 file.createNewFile()
             }
-            val fw = FileWriter(file.absoluteFile)
+            val fw = FileWriter(file.absoluteFile, Charset.forName("UTF-8"))
             val bw = BufferedWriter(fw)
             bw.write(content)
             bw.close()
