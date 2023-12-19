@@ -28,7 +28,21 @@ class @namePage extends AppBasePageStatefulWidget {
   State<@namePage> createState() => _@namePageState();
 }
 
-class _@namePageState extends AppBasePageState<@namePage> {
+class _@namePageState extends _@namePageBaseState<@namePage> {
+  @override
+  Widget buildScaffold(BuildContext context, LoginPageLogic logic, bool isCachedData) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          // TODO：
+        ],
+      ),
+    );
+  }
+}
+
+abstract class _@namePageBaseState extends AppBasePageState<@namePage> {
   static const getxSingletonTag = "singleton";
 
   late final @nameLogic logic;
@@ -36,6 +50,7 @@ class _@namePageState extends AppBasePageState<@namePage> {
   late final String getTag;
 
   @override
+  @mustCallSuper
   void initState() {
     getTag = widget.initialGetTag ?? getxSingletonTag;
     logic = Get.put(@nameLogic(), tag: getTag);
@@ -45,6 +60,7 @@ class _@namePageState extends AppBasePageState<@namePage> {
   }
 
   @override
+  @mustCallSuper
   void didUpdateWidget(covariant @namePage oldWidget) {
     state.page = widget;
     super.didUpdateWidget(oldWidget);
@@ -56,11 +72,11 @@ class _@namePageState extends AppBasePageState<@namePage> {
       tag: getTag,
       builder: (logic) {
         return buildCachedLoadingBody(context, logic, (context, isCachedData) {
-          return Scaffold(
-            body: Container(),
-          );
+          return buildScaffold(context, logic, isCachedData);
         });
       },
     );
   }
+
+  Widget buildScaffold(BuildContext context, @nameLogic logic, bool isCachedData);
 }
