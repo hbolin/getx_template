@@ -81,9 +81,4 @@ abstract class _@namePageBaseState<T extends @namePage> extends AppBasePageState
   }
 
   Widget buildScaffold(BuildContext context, @nameLogic logic, bool isCachedData);
-
-  @Deprecated("兼容旧项目改造使用，新项目不使用该方法")
-  Widget buildScaffoldBody(BuildContext context, @nameLogic logic, Widget Function(BuildContext context) buildBody) {
-    return buildBody(context);
-  }
 }
