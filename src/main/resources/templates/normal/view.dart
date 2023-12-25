@@ -45,16 +45,14 @@ class _@namePageState extends _@namePageBaseState<@namePage> {
 // ------------------------------------------------------ 基于Getx基础页面框架 ------------------------------------------------------
 
 abstract class _@namePageBaseState<T extends @namePage> extends AppBasePageState<@namePage> {
-  static const getxSingletonTag = "singleton";
-
   late final @nameLogic logic;
   late final @nameState state;
-  late final String getTag;
+  late final String? getTag;
 
   @override
   @mustCallSuper
   void initState() {
-    getTag = widget.initialGetTag ?? getxSingletonTag;
+    getTag = widget.initialGetTag;
     logic = Get.put(@nameLogic(), tag: getTag);
     state = Get.find<@nameLogic>(tag: getTag).state;
     state.page = widget;
